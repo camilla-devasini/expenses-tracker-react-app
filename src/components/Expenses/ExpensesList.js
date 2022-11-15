@@ -1,0 +1,26 @@
+import ExpenseItem from "./ExpenseItem";
+import './ExpensesList.css';
+
+const ExpensesList = props => {
+
+    if (props.items.length === 0) {
+        return <h2 className='expenses-list__fallback'>No expenses found</h2>
+    }
+
+    return (
+        <ul className='expenses-list'>
+            {props.items.map( (expense) => 
+                <ExpenseItem title={expense.title} //faccio map solo sul nuovo array restituito da filter e ritorno solo i dati filtrati
+                            amount={expense.amount}
+                            date={expense.date}
+                            key={expense.id} />)
+            }
+        </ul>
+    )
+   
+   
+    
+
+}
+
+export default ExpensesList;
